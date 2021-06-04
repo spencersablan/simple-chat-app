@@ -185,9 +185,25 @@ button:disabled {
 /* Media Queries */
 
 @media (max-width: 600px) {
+
+    header{
+        position: sticky;
+        top: 0;
+        width: 100vw;
+        height: 50px;
+        background-color: #6b47b8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     
     h1 {
         font-size: 6em;
+    }
+
+    h2 {
+        font-size: 28px;
+        color: white;
     }
 
     input,label {
@@ -206,5 +222,38 @@ button:disabled {
    .centered-form__box input {
        margin-bottom: 20px;
    }
+
+   .chat__sidebar {
+       position: absolute;
+       left: -225px;
+   }
+
+   .chat__main {
+       width:100vw;
+       height: 100vh;
+   }
+
+   .compose {
+       position: sticky;
+       bottom: 0;
+       background-color: white;
+   }
+
+   .message-form input {
+       overflow-wrap: break-word;
+   }
+
+   .chat__messages {
+       position: relative;
+       top: 50px;
+       padding-bottom: 24px;
+   }
+
+
+
+  
+
+
+
 
 }
