@@ -14,6 +14,10 @@ input {
     font-size: 14px;
 }
 
+header {
+    display: none;
+}
+
 body {
     line-height: 1.4;
     color: #333333;
@@ -43,7 +47,7 @@ button {
     background: #7C5CBF;
     border: none;
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     transition: background .3s ease;
 }
 
@@ -94,7 +98,8 @@ button:disabled {
     color: white;
     background: #333744;
     width: 225px;
-    overflow-y: scroll
+    overflow-y: scroll;
+    z-index: 10;
 }
 
 /* Chat styles */
@@ -145,22 +150,21 @@ button:disabled {
 .compose form {
     display: flex;
     flex-grow: 1;
-    margin-right: 16px;
 }
 
 .compose input {
     border: 1px solid #eeeeee;
     width: 100%;
     padding: 12px;
-    margin: 0 16px 0 0;
     flex-grow: 1;
-}
-
-.compose button {
-    font-size: 14px;
+    margin-right: 8px;
 }
 
 /* Chat Sidebar Styles */
+
+.chat__sidebar {
+    position: relative;
+}
 
 .room-title {
     font-weight: 400;
@@ -182,6 +186,15 @@ button:disabled {
     padding: 12px 24px 0 24px;
 }
 
+.chat__send-location {
+    position: absolute;
+    bottom: 0;
+    margin: 12px auto;
+    right: calc(50vw - 85px);
+    width: 170px;
+    height: 49px;
+}
+
 /* Media Queries */
 
 @media (max-width: 600px) {
@@ -195,6 +208,14 @@ button:disabled {
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 100000;
+    }
+
+    .header__users {
+        position: absolute;
+        height: 16px;
+        width: auto;
+        left: 20px;
     }
     
     h1 {
@@ -210,10 +231,6 @@ button:disabled {
         font-size: 20px;
     }
 
-    button {
-        font-size: 24px;
-    }
-
    .centered-form__box {
        width: 100vw;
        height: 100vh
@@ -224,8 +241,11 @@ button:disabled {
    }
 
    .chat__sidebar {
-       position: absolute;
-       left: -225px;
+       position: fixed;
+       width: 100vw;
+       left: -100vw;
+       padding-top: 50px;
+       bottom: 0;
    }
 
    .chat__main {
@@ -239,21 +259,28 @@ button:disabled {
        background-color: white;
    }
 
-   .message-form input {
-       overflow-wrap: break-word;
-   }
-
    .chat__messages {
-       position: relative;
-       top: 50px;
-       padding-bottom: 24px;
+       position: fixed;
+       top: 0;
+       bottom: 0;
+       margin-top: 50px;
+       width: 100vw;
+       padding-bottom: 73px;
    }
 
+   .compose {
+       position: fixed;
+       padding: 12px;
+       bottom: 0;
+   }
 
+   .compose button {
+       right: 0
+   }
 
-  
-
-
+   .room-title {
+       display: none;
+   }
 
 
 }

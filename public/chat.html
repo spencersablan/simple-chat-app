@@ -7,9 +7,13 @@
     <link rel="icon" href="./img/favicon.png">
 </head>
 <body>
-    <header></header>
+    <header>
+        <img class="header__users" src="./img/users.png" alt="users">
+    </header>
     <div class="chat">
-        <div class="chat__sidebar" id="sidebar"></div>
+        <div class="chat__sidebar" id="sidebar">
+            <button class="chat__send-location" id="send-location">send location</button>
+        </div>
         <div class="chat__main">
             <div id="messages" class="chat__messages"></div>
             <div class="compose">
@@ -17,7 +21,7 @@
                     <input placeholder="message" id="message-input" autocomplete="off" required>
                     <button id="send-btn">send</button>
                 </form>
-                <button id="send-location">send location</button>
+                
             </div>
             
         </div>

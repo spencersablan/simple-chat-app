@@ -8,6 +8,7 @@ const $sendLocationButton = document.querySelector('#send-location')
 const $messages = document.querySelector('#messages')
 const $sidebar = document.querySelector('#sidebar')
 const $header = document.querySelector('header')
+const $headerUsers = document.querySelector('.header__users')
  
 // Templates
 const messageTemplate = document.querySelector('#message-template').innerHTML
@@ -44,6 +45,20 @@ const autoscroll = () => {
 
 }
 
+const sidebarState = {
+    active: false
+}
+
+$headerUsers.addEventListener('click', () => {
+    if (sidebarState.active === false) {
+        $sidebar.style.left = "0"
+        return sidebarState.active = true
+    }
+
+    $sidebar.style.left = "-100vw"
+    sidebarState.active = false
+})
+
 socket.on('message', (message) => {
     const html = Mustache.render(messageTemplate, {
         username: message.username,
@@ -71,16 +86,14 @@ socket.on('roomData', ({room,users}) => {
         users
     })
 
-    $sidebar.innerHTML = sidebarHtml
+    $sidebar.insertAdjacentHTML('afterbegin', sidebarHtml)
 
     const headerHtml = Mustache.render(headerTemplate, {
         room,
         users
     })
 
-    $header.innerHTML = headerHtml
-
-    
+    $header.insertAdjacentHTML('beforeend', headerHtml)
 })
 
 $messageForm.addEventListener('submit', (e) => {
