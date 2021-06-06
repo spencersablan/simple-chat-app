@@ -200,7 +200,7 @@ button:disabled {
 @media (max-width: 600px) {
 
     header{
-        position: sticky;
+        position: fixed;
         top: 0;
         width: 100vw;
         height: 50px;
@@ -216,6 +216,16 @@ button:disabled {
         height: 16px;
         width: auto;
         left: 20px;
+        display: block;
+    }
+
+    .header__x {
+        position: absolute;
+        font-size: 18px;
+        left: 25px;
+        color: white;
+        display: none;
+
     }
     
     h1 {
@@ -245,7 +255,8 @@ button:disabled {
        width: 100vw;
        left: -100vw;
        padding-top: 50px;
-       bottom: 0;
+       top:0;
+       -webkit-backface-visability: hidden;
    }
 
    .chat__main {
@@ -266,12 +277,14 @@ button:disabled {
        margin-top: 50px;
        width: 100vw;
        padding-bottom: 73px;
+       -webkit-backface-visability: hidden;
    }
 
    .compose {
        position: fixed;
        padding: 12px;
        bottom: 0;
+       -webkit-backface-visability: hidden;
    }
 
    .compose button {
@@ -282,5 +295,8 @@ button:disabled {
        display: none;
    }
 
+   .chat__send-location {
+       bottom: 120px;
+   }
 
 }
