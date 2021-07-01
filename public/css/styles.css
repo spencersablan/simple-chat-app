@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+:root {
+    --teal: #45c7b1;
+    --dark-teal: #025f50;
+}
+
 html {
     font-size: 16px;
 }
@@ -44,7 +49,7 @@ input {
 button {
     cursor: pointer;
     padding: 12px;
-    background: #7C5CBF;
+    background: var(--teal);
     border: none;
     color: white;
     font-size: 14px;
@@ -52,18 +57,18 @@ button {
 }
 
 button:hover {
-    background: #6b47b8;
+    background: rgb(30, 131, 131);
 }
 
 button:disabled {
     cursor: default;
-    background: #7c5cbf94;
+    background: var(--dark-teal);
 }
 
 /* Join Page Styles */
 
 .centered-form {
-    background: #333744;
+    background: var(--dark-teal);
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -96,7 +101,7 @@ button:disabled {
 .chat__sidebar {
     height: 100vh;
     color: white;
-    background: #333744;
+    background: var(--dark-teal);
     width: 225px;
     overflow-y: scroll;
     z-index: 10;
@@ -169,7 +174,7 @@ button:disabled {
 .room-title {
     font-weight: 400;
     font-size: 22px;
-    background: #2c2f3a;
+    background: rgb(0, 53, 53);
     padding: 24px;   
 }
 
@@ -190,7 +195,7 @@ button:disabled {
     position: absolute;
     bottom: 0;
     margin: 12px auto;
-    right: calc(50vw - 85px);
+    right: calc(50% - 85px);
     width: 170px;
     height: 49px;
 }
@@ -204,7 +209,7 @@ button:disabled {
         top: 0;
         width: 100vw;
         height: 50px;
-        background-color: #6b47b8;
+        background-color: var(--teal);
         display: flex;
         justify-content: center;
         align-items: center;
